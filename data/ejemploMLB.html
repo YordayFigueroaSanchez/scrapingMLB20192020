@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MLB Box Score - Washington Nationals vs. Chicago Cubs - August 23, 2019 - xmlstats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Box score for Washington Nationals vs. Chicago Cubs game played on Friday, August 23, 2019. Available in XML and JSON.">
+<meta name="revised" content="">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@xmlstats">
+<meta name="twitter:title" content="MLB Box Score - Washington Nationals vs. Chicago Cubs - August 23, 2019 - xmlstats">
+<meta name="twitter:description" content="Box score for Washington Nationals vs. Chicago Cubs game played on Friday, August 23, 2019. Available in XML and JSON.">
+<meta name="twitter:image" content="/images/xmlstats-logo-400.png">
+<meta property="og:image" content="/images/xmlstats-logo-400.png">
+<link rel="stylesheet" type="text/css" href="/style/pure.css"/>
+<link rel="stylesheet" type="text/css" href="/style/grids-responsive.css"/>
+<link rel="stylesheet" type="text/css" href="/style/xmlstats.css"/>
+<link rel="icon" sizes="192x192" href="/images/favicon-192.png?20160926">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/images/favicon-180.png?20160926">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon-152.png?20160926">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon-120.png?20160926">
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon-76.png?20160926">
+<link rel="apple-touch-icon-precomposed" href="/images/favicon-57.png?20160926">
+<link rel="mask-icon" color="#ff6600" href="/images/xmlstats-logo-pinned.svg?20160926">
+</head>
+<body>
+
+<nav class="sitenav" id="menu">
+  <div class="eb-nav-content">
+    <ul class="eb-short">
+      <li class="eb-menu-item"><a href="#" class="hamburger-toggle" id="hamburger"><s class="bar"></s><s class="bar"></s></a></li>
+      <li class="eb-menu-item"><a href="/api" class="eb-menu-link xmlstats-logo xmlstats-logo-on"></a></li>
+      <li class="eb-menu-item"><a href="/account" class="eb-menu-link person-icon-selected"></a></li>
+    </ul>
+    <ul class="eb-list">
+  <li class="eb-menu-item notit"><a href="/api" class="eb-menu-link xmlstats-logo xmlstats-logo-off"></a></li>
+      <li class="eb-menu-item eb-will-transform"><a href="/nba" class="eb-menu-link ">NBA</a></li>
+      <li class="eb-menu-item eb-will-transform"><a href="/mlb" class="eb-menu-link eb-menu-active">MLB</a></li>
+      <li class="eb-menu-item eb-will-transform"><a href="/events" class="eb-menu-link">Events</a></li>
+      <li class="eb-menu-item eb-menu-has-children notit">
+       <a href="#" class="eb-menu-link person-icon"></a>
+       <ul class="eb-menu-children">
+        <li class="eb-menu-item"><a href="/signin" class="eb-menu-link">Sign in</a></li>
+       </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<nav class="subnav">
+  <div class="pure-menu pure-menu-horizontal pure-menu-scrollable" style="text-align:center" id="xxx">
+    <ul class="pure-menu-list">
+      <li class="eb-menu-item"><a href="/mlb/scores" class="eb-submenu-link">Scores</a>
+      <li class="eb-menu-item"><a href="/mlb/standings" class="eb-submenu-link">Standings</a>
+      <li class="eb-menu-item"><a href="/mlb/wildcard" class="eb-submenu-link">Wild Card</a>
+      <li class="eb-menu-item"><a href="/mlb/charts" class="eb-submenu-link">Division Race Charts</a>
+      <li class="eb-menu-item"><a href="/mlb/postseason" class="eb-submenu-link">Postseason</a>
+      <li class="eb-menu-item"><a href="/mlb/players" class="eb-submenu-link">Players</a>
+      <li class="eb-menu-item"><input id="search" size="5">
+     </ul>
+     <form name="search" action="javascript:void(0);" id="fsearch" class="searchshow">
+      <input name="playerId" type="hidden" id="pid">
+      <input id="q" type="text" autocomplete="off" class="tonka" spellcheck="false" autocorrect="off" placeholder="Search Players">
+      <script type="text/javascript" src="/js/xmlstats.js"></script>
+      <script type="text/javascript">xmlstats.ac.init(document.forms.search.q)</script>
+     </form>
+  </div>
+</nav>
+
+<script>
+document.getElementById('search').addEventListener('click', showsearch, false);
+document.getElementById('search').addEventListener('focus', showsearch, false);
+
+function showsearch() {
+  [].forEach.call(document.querySelectorAll('.subnav .eb-menu-item'),
+    function(el) {
+      el.classList.add('moveit');
+    }
+  );
+  var form = document.getElementById('fsearch');
+  fsearch.classList.remove('searchshow');
+  var q = document.getElementById('q');
+  q.focus();
+  // prevent form from closing immediately
+  setTimeout(function() {
+    document.addEventListener('click', hideSearch, false);
+  }, 500);
+  // prevent ul from capturing click event
+  form.parentElement.querySelector('ul.pure-menu-list').style.pointerEvents = 'none';
+}
+
+function hideSearch (evt) {
+  var form = document.getElementById('fsearch');
+  var q = document.getElementById('q');
+  var inElement = (evt) ? form.contains(evt.target) : false;
+  if (inElement) {
+    return;
+  }
+  form.parentElement.querySelector('ul.pure-menu-list').style.pointerEvents = 'all';
+  document.removeEventListener('click', hideSearch);
+  [].forEach.call(document.querySelectorAll('.subnav .eb-menu-item'),
+    function(el) {
+      el.classList.remove('moveit');
+    } 
+  );
+  xmlstats.ac.resetSearch(document.forms.search.q);
+  fsearch.classList.add('searchshow');
+}
+</script>
+
+<script type="text/javascript">
+(function (window, document) {
+var menu = document.getElementById('menu');
+var windowEvent = ('onorientationchange' in window) ? 'orientationchange' : 'resize';
+function toggleHorizontal() {
+  [].forEach.call(
+    document.getElementById('menu').querySelectorAll('.eb-will-transform'),
+    function(el) {
+        el.classList.toggle('eb-menu-item');
+    }
+  );
+  [].forEach.call(
+    document.getElementById("menu").querySelectorAll(".notit"),
+    function(elem) {
+      if (elem.style.display == "none") {
+        elem.removeAttribute("style");
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  );
+};
+
+function toggleMenu() {
+  // set timeout so that the panel has a chance to roll up
+  // before the menu switches states
+  var list = document.getElementsByClassName("eb-list");
+  if (menu.classList.contains('open')) {
+    setTimeout(toggleHorizontal, 500);
+    list[0].removeAttribute("style");
+  } else {
+    list[0].style.display = "block";
+    toggleHorizontal();
+  }
+  menu.classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('x');
+};
+
+function closeMenu() {
+  if (menu.classList.contains('open')) {
+    toggleMenu();
+  }
+}
+
+document.getElementById('hamburger').addEventListener('click', function(e) {
+  toggleMenu();
+});
+
+window.addEventListener(windowEvent, closeMenu);
+})(this, this.document);
+</script>
+
+<script>
+(function (window, document) {
+  'use strict';
+
+  // Enable drop-down menus in Pure
+  // Inspired by YUI3 gallery-simple-menu by Julien LeComte
+  // [https://github.com/yui/yui3-gallery/blob/master/src/gallery-simple-menu/js/simple-menu.js]
+
+  function PureDropdown(dropdownParent) {
+    var PREFIX = 'eb-',
+      ACTIVE_CLASS_NAME = PREFIX + 'menu-active',
+      ARIA_ROLE = 'role',
+      ARIA_HIDDEN = 'aria-hidden',
+      MENU_OPEN = 0,
+      MENU_CLOSED = 1,
+      MENU_PARENT_CLASS_NAME = 'eb-menu-has-children',
+      MENU_ACTIVE_SELECTOR = '.eb-menu-active',
+      MENU_LINK_SELECTOR = '.eb-menu-link',
+      MENU_SELECTOR = '.eb-menu-children',
+      DISMISS_EVENT = (window.hasOwnProperty && window.hasOwnProperty('ontouchstart')) ? 'touchstart' : 'mousedown',
+      ARROW_KEYS_ENABLED = false,
+      ddm = this; // drop down menu
+
+      this._state = MENU_CLOSED;
+
+      this.show = function () {
+        if (this._state !== MENU_OPEN) {
+          [].forEach.call(
+            this._menu.querySelectorAll('li'),
+            function(elem) {
+              elem.style.opacity = '0';
+            }
+          );
+          this._menu.style.height = '0';
+          this._dropdownParent.classList.add(ACTIVE_CLASS_NAME);
+          this._menu.setAttribute(ARIA_HIDDEN, false);
+          this._menu.style.left = "inherit";
+          this._state = MENU_OPEN;
+          this._link.classList.toggle('person-menu-open');
+          if (this._menu.getBoundingClientRect().left + this._menu.getBoundingClientRect().width + 20 > document.body.clientWidth) {
+            //this._menu.style.left = this._menu.getBoundingClientRect().left - (this._menu.offsetWidth/2+20) + "px";
+            this._menu.style.transform = 'translateX(-'+(this._menu.getBoundingClientRect().width-34)+'px)';
+          }
+          //this._menu.style.height = 'inherit';
+          this._menu.style.height = '6em';
+          setTimeout(this.reallyshowit, 100);
+        }
+      };
+
+      this.reallyshowit = (function(e) {
+        [].forEach.call(
+          this._menu.querySelectorAll('li'),
+          function(elem) {
+            elem.style.opacity = '1';
+          }
+        );
+      }).bind(this);
+
+      this.hide = function () {
+        if (this._state !== MENU_CLOSED) {
+          this._menu.style.height = '0';
+          //this._menu.style.opacity = '0';
+          [].forEach.call(
+            this._menu.querySelectorAll('li'),
+            function(elem) {
+              elem.style.opacity = '0';
+            }
+          );
+          setTimeout(this.reallyhideit, 150);
+        }
+      };
+
+      this.reallyhideit = (function(e) {
+        this._dropdownParent.classList.remove(ACTIVE_CLASS_NAME);
+        this._menu.setAttribute(ARIA_HIDDEN, true);
+        //this._link.focus();
+        this._link.classList.toggle('person-menu-open');
+        this._state = MENU_CLOSED;
+        this._menu.style.removeProperty('transform');
+      }).bind(this);
+
+      this.toggle = function () {
+        this[this._state === MENU_CLOSED ? 'show' : 'hide']();
+      };
+
+      this.halt = function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+      };
+
+      this._dropdownParent = dropdownParent;
+      this._link = this._dropdownParent.querySelector(MENU_LINK_SELECTOR);
+      this._menu = this._dropdownParent.querySelector(MENU_SELECTOR);
+      this._firstMenuLink = this._menu.querySelector(MENU_LINK_SELECTOR);
+
+      // Set ARIA attributes
+      this._link.setAttribute('aria-haspopup', 'true');
+      this._menu.setAttribute(ARIA_ROLE, 'menu');
+      this._menu.setAttribute('aria-labelledby', this._link.getAttribute('id'));
+      this._menu.setAttribute('aria-hidden', 'true');
+      [].forEach.call(
+        this._menu.querySelectorAll('li'),
+        function(el){
+          el.setAttribute(ARIA_ROLE, 'presentation');
+        }
+      );
+      [].forEach.call(
+        this._menu.querySelectorAll('a'),
+        function(el){
+          el.setAttribute(ARIA_ROLE, 'menuitem');
+        }
+      );
+
+      // Toggle on click
+      this._link.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        ddm.toggle();
+      });
+
+      // Dismiss an open menu on outside event
+      document.addEventListener(DISMISS_EVENT, function (e) {
+        var target = e.target;
+        if (target !== ddm._link && !ddm._menu.contains(target)) {
+          ddm.hide();
+          ddm._link.blur();
+        }
+      });
+  }
+
+  function initDropdowns() {
+    var dropdownParents = document.querySelectorAll('.eb-menu-has-children');
+    for (var i = 0; i < dropdownParents.length; i++) {
+        var ddm = new PureDropdown(dropdownParents[i]);
+    }
+  }
+
+  initDropdowns();
+
+}(this, this.document));
+</script>
+
+
+<div id="layout" class="pure-g content">
+
+<div class="pure-u-1">
+ <p><a href="/mlb/scores/20190823">Friday, August 23, 2019</a></p>
+</div>
+
+<div class="pure-u-1">
+  <table class="pure-table mlb-scores">
+    <thead>
+    <tr>
+     <th class="mlbtot"></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+     <th class="mlbtot">R</th>
+     <th class="mlbtot">H</th>
+     <th class="mlbtot">E</th>
+    </tr>
+   </thead>
+   <tbody>
+   <tr>
+    <td class="mlbtot win"><a href="/mlb/team/washington-nationals">Washington Nationals</a></td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td class="mlbtot">9</td>
+    <td class="mlbtot">14</td>
+    <td class="mlbtot">1</td>
+   </tr>
+   <tr>
+    <td class="mlbtot loss"><a href="/mlb/team/chicago-cubs">Chicago Cubs</a></td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>3</td>
+    <td class="mlbtot">3</td>
+    <td class="mlbtot">3</td>
+    <td class="mlbtot">1</td>
+   </tr>
+   </tbody>
+  </table>
+
+  <h2>Washington</h2>
+
+  <div class="pure-u-1 standings-hdng">
+   <h2>Batters</h2>
+  </div>
+
+  <table class="pure-table pure-table-striped mlb-box mlb-box-bat mobile">
+   <thead>
+    <tr>
+     <th>Batters</th>
+     <th>AB</th>
+     <th>R</th>
+     <th>H</th>
+     <th>RBI</th>
+     <th>BB</th>
+     <th>SB</th>
+     <th>SO</th>
+     <th>LOB</th>
+     <th>AVG</th>
+     <th>OBP</th>
+     <th>SLG</th>
+     <th>OPS</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td><a href="/mlb/player/11135">Trea Turner</a>, SS</td>
+     <td data-label="At Bats" >4</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" >1</td>
+     <td data-label="Runs Batted In" >1</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.250</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.200</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.250</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.450</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/8793">Adam Eaton</a>, RF</td>
+     <td data-label="At Bats" >5</td>
+     <td data-label="Runs" >1</td>
+     <td data-label="Hits" >1</td>
+     <td data-label="Runs Batted In" >1</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >1</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.200</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.200</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.800</td>
+     <td data-label="On Base + Slugging">1.000</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/8910">Anthony Rendon</a>, 3B</td>
+     <td data-label="At Bats" >5</td>
+     <td data-label="Runs" >1</td>
+     <td data-label="Hits" >1</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >1</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.200</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.200</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.200</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.400</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/12824">Juan Soto</a>, LF</td>
+     <td data-label="At Bats" >4</td>
+     <td data-label="Runs" >4</td>
+     <td data-label="Hits" >3</td>
+     <td data-label="Runs Batted In" >1</td>
+     <td data-label="Walks" >1</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.750</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.800</td>
+     <td data-label="Slugging %">1.500</td>
+     <td data-label="On Base + Slugging">2.300</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/5770">Howie Kendrick</a>, 1B</td>
+     <td data-label="At Bats" >5</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" >2</td>
+     <td data-label="Runs Batted In" >1</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >2</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.400</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.400</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.600</td>
+     <td data-label="On Base + Slugging">1.000</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/6097">Kurt Suzuki</a>, C</td>
+     <td data-label="At Bats" >4</td>
+     <td data-label="Runs" >2</td>
+     <td data-label="Hits" >1</td>
+     <td data-label="Runs Batted In" >1</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >1</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.250</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.400</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.250</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.650</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/8488">Brian Dozier</a>, 2B</td>
+     <td data-label="At Bats" >4</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" >1</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" >1</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >3</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.250</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.400</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.250</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.650</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/12633">Victor Robles</a>, CF</td>
+     <td data-label="At Bats" >4</td>
+     <td data-label="Runs" >1</td>
+     <td data-label="Hits" >2</td>
+     <td data-label="Runs Batted In" >2</td>
+     <td data-label="Walks" >1</td>
+     <td data-label="Stolen Bases" >1</td>
+     <td data-label="Strikeouts" >1</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.500</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.600</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.750</td>
+     <td data-label="On Base + Slugging">1.350</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/5854">Aníbal Sánchez</a>, P</td>
+     <td data-label="At Bats" >3</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" >2</td>
+     <td data-label="Runs Batted In" >1</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.667</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.667</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.667</td>
+     <td data-label="On Base + Slugging">1.334</td>
+    </tr>
+    <tr>
+     <td>&#xA0;&#xA0;&#xA0;&#xA0;<a href="/mlb/player/10626">Matt Grace</a>, P</td>
+     <td data-label="At Bats" class="boxmute">0</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td>Totals</td>
+     <td>38</td>
+     <td>9</td>
+     <td>14</td>
+     <td>8</td>
+     <td>3</td>
+     <td>1</td>
+     <td>9</td>
+     <td class="boxmute">0</td>
+     <td>.368</td>
+     <td>.419</td>
+     <td>.579</td>
+     <td>.998</td>
+    </tr>
+   </tbody>
+  </table>
+
+  <div class="pure-u-1 standings-hdng">
+   <h2>Pitchers</h2>
+  </div>
+
+  <table style="margin-top:2em" class="pure-table pure-table-striped mlb-box mlb-pitch mobile">
+   <thead>
+    <tr>
+     <th>Pitchers</th>
+     <th>IP</th>
+     <th>H</th>
+     <th>R</th>
+     <th>ER</th>
+     <th>BB</th>
+     <th>K</th>
+     <th>HR</th>
+     <th>PC-ST</th>
+     <th>ERA</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td data-label=""><a href="/mlb/player/5854">Aníbal Sánchez</a> <span class="btn-win">Win</span></td>
+     <td data-label="Innings Pitched">8.1</td>
+     <td data-label="Hits">1</td>
+     <td data-label="Runs">2</td>
+     <td data-label="Earned Runs">1</td>
+     <td data-label="Bases on Balls">2</td>
+     <td data-label="Strikeouts">6</td>
+     <td data-label="Home Runs">0</td>
+     <td data-label="Pitch Count-Strikes">112-76</td>
+     <td data-label="Earned Run Average">1.08</td>
+    </tr>
+    <tr>
+     <td data-label=""><a href="/mlb/player/10626">Matt Grace</a> </td>
+     <td data-label="Innings Pitched">0.2</td>
+     <td data-label="Hits">2</td>
+     <td data-label="Runs">1</td>
+     <td data-label="Earned Runs">1</td>
+     <td data-label="Bases on Balls">0</td>
+     <td data-label="Strikeouts">1</td>
+     <td data-label="Home Runs">0</td>
+     <td data-label="Pitch Count-Strikes">13-7</td>
+     <td data-label="Earned Run Average">13.50</td>
+    </tr>
+   </tbody>
+  </table>
+
+  <div class="row">
+   <div class="span5">
+    <h3>Batting</h3>
+    <p>
+      <b>2B</b> &ndash;  Howie Kendrick (1) Victor Robles (1)<br />
+      <b>HR</b> &ndash;  Adam Eaton (1) Juan Soto (1)<br />
+      <b>RBI</b> &ndash;  Trea Turner (1) Adam Eaton (1) Juan Soto (1) Howie Kendrick (1) Kurt Suzuki (1) Victor Robles (2) Aníbal Sánchez (1)</br />
+      <b>SB</b> &ndash;  Victor Robles (1)
+    </p>
+   </div>
+
+  </div>
+
+
+  <h2>Chicago</h2>
+
+  <div class="pure-u-1 standings-hdng">
+   <h2>Batters</h2>
+  </div>
+
+  <table class="pure-table pure-table-striped mlb-box mlb-box-bat mobile">
+   <thead>
+    <tr>
+     <th>Batters</th>
+     <th>AB</th>
+     <th>R</th>
+     <th>H</th>
+     <th>RBI</th>
+     <th>BB</th>
+     <th>SB</th>
+     <th>SO</th>
+     <th>LOB</th>
+     <th>AVG</th>
+     <th>OBP</th>
+     <th>SLG</th>
+     <th>OPS</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td><a href="/mlb/player/7643">Jason Heyward</a>, CF</td>
+     <td data-label="At Bats" >3</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td>&#xA0;&#xA0;&#xA0;&#xA0;<a href="/mlb/player/8417">David Phelps</a>, P</td>
+     <td data-label="At Bats" class="boxmute">0</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td>&#xA0;&#xA0;&#xA0;&#xA0;<a href="/mlb/player/7853">Steve Cishek</a>, P</td>
+     <td data-label="At Bats" class="boxmute">0</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td>&#xA0;&#xA0;&#xA0;&#xA0;<a href="/mlb/player/10284">Victor Caratini</a>, 3B</td>
+     <td data-label="At Bats" >1</td>
+     <td data-label="Runs" >1</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/9360">Nick Castellanos</a>, RF</td>
+     <td data-label="At Bats" >4</td>
+     <td data-label="Runs" >1</td>
+     <td data-label="Hits" >2</td>
+     <td data-label="Runs Batted In" >1</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >1</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.500</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.500</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.750</td>
+     <td data-label="On Base + Slugging">1.250</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/10807">Kris Bryant</a>, 3B</td>
+     <td data-label="At Bats" >3</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >1</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td>&#xA0;&#xA0;&#xA0;&#xA0;<a href="/mlb/player/7383">Derek Holland</a>, P</td>
+     <td data-label="At Bats" >1</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >1</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/8543">Anthony Rizzo</a>, 1B</td>
+     <td data-label="At Bats" >3</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" >1</td>
+     <td data-label="Runs Batted In" >1</td>
+     <td data-label="Walks" >1</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >1</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.333</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.500</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.333</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.833</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/10299">Javier Baez</a>, SS</td>
+     <td data-label="At Bats" >2</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td>&#xA0;&#xA0;&#xA0;&#xA0;<a href="/mlb/player/8044">Tyler Chatwood</a>, P</td>
+     <td data-label="At Bats" class="boxmute">0</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td>&#xA0;&#xA0;&#xA0;&#xA0;<a href="/mlb/player/12196">Ian Happ</a>, CF</td>
+     <td data-label="At Bats" >2</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/10934">Kyle Schwarber</a>, LF</td>
+     <td data-label="At Bats" >3</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/7699">Jonathan Lucroy</a>, C</td>
+     <td data-label="At Bats" >3</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >2</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/11470">Tony Kemp</a>, 2B</td>
+     <td data-label="At Bats" >2</td>
+     <td data-label="Runs" >1</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" >1</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" >1</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.333</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.333</td>
+    </tr>
+    <tr>
+     <td><a href="/mlb/player/5838">Jon Lester</a>, P</td>
+     <td data-label="At Bats" >1</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td>&#xA0;&#xA0;&#xA0;&#xA0;<a href="/mlb/player/7519">Pedro Strop</a>, P</td>
+     <td data-label="At Bats" class="boxmute">0</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td>&#xA0;&#xA0;&#xA0;&#xA0;<a href="/mlb/player/10126">Addison Russell</a>, SS</td>
+     <td data-label="At Bats" >2</td>
+     <td data-label="Runs" class="boxmute">0</td>
+     <td data-label="Hits" class="boxmute">0</td>
+     <td data-label="Runs Batted In" class="boxmute">0</td>
+     <td data-label="Walks" class="boxmute">0</td>
+     <td data-label="Stolen Bases" class="boxmute">0</td>
+     <td data-label="Strikeouts" class="boxmute">0</td>
+     <td data-label="Left On Base" class="boxmute">0</td>
+     <td data-label="Batting Average"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="Slugging %"><span style='visibility:hidden'>0</span>.000</td>
+     <td data-label="On Base + Slugging"><span style='visibility:hidden'>0</span>.000</td>
+    </tr>
+    <tr>
+     <td>Totals</td>
+     <td>30</td>
+     <td>3</td>
+     <td>3</td>
+     <td>2</td>
+     <td>2</td>
+     <td class="boxmute">0</td>
+     <td>7</td>
+     <td class="boxmute">0</td>
+     <td>.100</td>
+     <td>.156</td>
+     <td>.133</td>
+     <td>.289</td>
+    </tr>
+   </tbody>
+  </table>
+
+  <div class="pure-u-1 standings-hdng">
+   <h2>Pitchers</h2>
+  </div>
+
+  <table style="margin-top:2em" class="pure-table pure-table-striped mlb-box mlb-pitch mobile">
+   <thead>
+    <tr>
+     <th>Pitchers</th>
+     <th>IP</th>
+     <th>H</th>
+     <th>R</th>
+     <th>ER</th>
+     <th>BB</th>
+     <th>K</th>
+     <th>HR</th>
+     <th>PC-ST</th>
+     <th>ERA</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td data-label=""><a href="/mlb/player/5838">Jon Lester</a> <span class="btn-loss">Loss</span></td>
+     <td data-label="Innings Pitched">4.1</td>
+     <td data-label="Hits">9</td>
+     <td data-label="Runs">6</td>
+     <td data-label="Earned Runs">6</td>
+     <td data-label="Bases on Balls">1</td>
+     <td data-label="Strikeouts">2</td>
+     <td data-label="Home Runs">1</td>
+     <td data-label="Pitch Count-Strikes">95-59</td>
+     <td data-label="Earned Run Average">12.46</td>
+    </tr>
+    <tr>
+     <td data-label=""><a href="/mlb/player/7519">Pedro Strop</a> </td>
+     <td data-label="Innings Pitched">0.2</td>
+     <td data-label="Hits">1</td>
+     <td data-label="Runs">1</td>
+     <td data-label="Earned Runs">1</td>
+     <td data-label="Bases on Balls">1</td>
+     <td data-label="Strikeouts">1</td>
+     <td data-label="Home Runs">0</td>
+     <td data-label="Pitch Count-Strikes">20-11</td>
+     <td data-label="Earned Run Average">13.50</td>
+    </tr>
+    <tr>
+     <td data-label=""><a href="/mlb/player/8044">Tyler Chatwood</a> </td>
+     <td data-label="Innings Pitched">1.0</td>
+     <td data-label="Hits">0</td>
+     <td data-label="Runs">0</td>
+     <td data-label="Earned Runs">0</td>
+     <td data-label="Bases on Balls">0</td>
+     <td data-label="Strikeouts">1</td>
+     <td data-label="Home Runs">0</td>
+     <td data-label="Pitch Count-Strikes">15-9</td>
+     <td data-label="Earned Run Average">0.00</td>
+    </tr>
+    <tr>
+     <td data-label=""><a href="/mlb/player/8417">David Phelps</a> </td>
+     <td data-label="Innings Pitched">1.0</td>
+     <td data-label="Hits">1</td>
+     <td data-label="Runs">1</td>
+     <td data-label="Earned Runs">1</td>
+     <td data-label="Bases on Balls">0</td>
+     <td data-label="Strikeouts">2</td>
+     <td data-label="Home Runs">1</td>
+     <td data-label="Pitch Count-Strikes">16-11</td>
+     <td data-label="Earned Run Average">9.00</td>
+    </tr>
+    <tr>
+     <td data-label=""><a href="/mlb/player/7853">Steve Cishek</a> </td>
+     <td data-label="Innings Pitched">1.0</td>
+     <td data-label="Hits">2</td>
+     <td data-label="Runs">0</td>
+     <td data-label="Earned Runs">0</td>
+     <td data-label="Bases on Balls">0</td>
+     <td data-label="Strikeouts">1</td>
+     <td data-label="Home Runs">0</td>
+     <td data-label="Pitch Count-Strikes">19-13</td>
+     <td data-label="Earned Run Average">0.00</td>
+    </tr>
+    <tr>
+     <td data-label=""><a href="/mlb/player/7383">Derek Holland</a> </td>
+     <td data-label="Innings Pitched">1.0</td>
+     <td data-label="Hits">1</td>
+     <td data-label="Runs">1</td>
+     <td data-label="Earned Runs">1</td>
+     <td data-label="Bases on Balls">1</td>
+     <td data-label="Strikeouts">2</td>
+     <td data-label="Home Runs">0</td>
+     <td data-label="Pitch Count-Strikes">24-15</td>
+     <td data-label="Earned Run Average">9.00</td>
+    </tr>
+   </tbody>
+  </table>
+
+  <div class="row">
+   <div class="span5">
+    <h3>Batting</h3>
+    <p>
+      <b>2B</b> &ndash;  Nick Castellanos (1)<br />
+      <b>RBI</b> &ndash;  Nick Castellanos (1) Anthony Rizzo (1)</br />
+    </p>
+   </div>
+
+   <div class="span5">
+    <h3>Pitching</h3>
+    <p>
+      <b>WP</b> &ndash;  Pedro Strop (1)<br />
+      <b>HBP</b> &ndash;  Pedro Strop (1)
+    </p>
+   </div>
+  </div>
+
+
+   <h3>Umpires</h3>
+   <p>
+    Home Plate &ndash; Jordan Baker,
+    First Base &ndash; Victor Carapazza,
+    Second Base &ndash; Dan Iassogna,
+    Third Base &ndash; Hunter Wendelstedt
+   </p>
+
+  <h3>Game information</h3>
+     <dl>
+      <dt>Location</dt>
+      <dd>Wrigley Field &ndash; Chicago, Illinois</dd>
+      <dt>Attendance</dt>
+      <dd>39,889</dd>
+      <dt>Temperature</dt>
+      <dd>73</dd>
+      <dt>Duration</dt>
+      <dd>3 hours, 10 minutes</dd>
+     </dl>
+
+  
+
+</div>
+
+</div>
+
+
+<footer>
+ <div>
+  <div class="ftr-logo"><a href="https://erikberg.com/api"><svg height="86px" width="86px"><use xlink:href="/images/xmlstats-icons.svg#xmlstats-logo-text"></use></svg></a></div>
+  <div class="ftr-content">
+    <div><p>Email: <a href="mailto:xmlstats@erikberg.com">xmlstats@erikberg.com</a></p></div>
+    <div><p>Twitter: <a href="https://twitter.com/xmlstats">@xmlstats</a></p></div>
+    <div><p>Problems/Wrong Data/Improvements? <a href="/api/issues">API and Website Issues</a></p></div>
+    <div><p>&copy; 2019 Erik Berg</p></div>
+  </div>
+ </div>
+</footer>
+
+</body>
+</html>
+
+

@@ -1,6 +1,8 @@
 package scraping;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -32,14 +34,23 @@ public class ScrapingMLB20192020 {
 
 		String url = "https://coinmarketcap.com/";
 
-		String file = "ejemplo.html";
+		String file = "ejemploMLB.html";
 
-		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+//		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+//		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+		
+		File input = new File("data/"  + file);
+		Document doc = null;
+		try {
+			doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		// elemento raiz
-		org.w3c.dom.Document doc = docBuilder.newDocument();
-		org.w3c.dom.Element rootElement = doc.createElement("game");
+//		Document doc = docBuilder.newDocument();
+		Element rootElement = doc.createElement("game");
 		doc.appendChild(rootElement);
 
 //		if (getStatusConnectionCode(url) == 200) {
@@ -48,29 +59,31 @@ public class ScrapingMLB20192020 {
 //			Document documento = getHtmlDocument(url);
 			Document documento = getHtmlFileToDocument(file);
 
-//			Analizando el grupo de bateadores del team VS
-			Elements elementosOffensiveVs = documento
-					.select("table[id=MainContent_Estado_Juego_Tabs_ctl44_BoxScore_Bateo_VS_DXMainTable] > tbody > tr");
-			System.out.println(elementosOffensiveVs.size());
-			rootElement.appendChild(extractOffensiveHtmlToXml( elementosOffensiveVs, doc));
+//			Analizando el grupo de bateadores de ambos teams
+			Elements elementosOffensive = documento
+					.select("table.mlb-box-bat > tbody");
+			System.out.println(elementosOffensive.size());
+			rootElement.appendChild(extractOffensiveHtmlToXml( elementosOffensive.get(0).select("tr"), doc));
+			rootElement.appendChild(extractOffensiveHtmlToXml( elementosOffensive.get(1).select("tr"), doc));
 			
 //			Analizando el grupo de bateadores del team HC
-			Elements elementosOffensiveHc = documento
-					.select("table[id=MainContent_Estado_Juego_Tabs_ctl44_BoxScore_Bateo_HC_DXMainTable] > tbody > tr");
-			System.out.println(elementosOffensiveHc.size());
-			rootElement.appendChild(extractOffensiveHtmlToXml( elementosOffensiveHc, doc));
+//			Elements elementosOffensiveHc = documento
+//					.select("table[id=MainContent_Estado_Juego_Tabs_ctl44_BoxScore_Bateo_HC_DXMainTable] > tbody > tr");
+//			System.out.println(elementosOffensiveHc.size());
+//			rootElement.appendChild(extractOffensiveHtmlToXml( elementosOffensiveHc, doc));
 			
-//			Analizando el grupo de bateadores del team VS
-			Elements elementosPitchVs = documento
-					.select("table[id=MainContent_Estado_Juego_Tabs_ctl44_BoxScore_Pitch_VS_DXMainTable] > tbody > tr");
-			System.out.println(elementosPitchVs.size());
-			rootElement.appendChild(extractPitchHtmlToXml( elementosPitchVs, doc));
+//			Analizando el grupo de lanzadores de ambos team
+			Elements elementosPitch = documento
+					.select("table.mlb-pitch > tbody");
+			System.out.println(elementosPitch.size());
+			rootElement.appendChild(extractPitchHtmlToXml( elementosPitch.get(0).select("tr"), doc));
+			rootElement.appendChild(extractPitchHtmlToXml( elementosPitch.get(1).select("tr"), doc));
 			
 //			Analizando el grupo de bateadores del team HC
-			Elements elementosPitchHc = documento
-					.select("table[id=MainContent_Estado_Juego_Tabs_ctl44_BoxScore_Pitch_HC_DXMainTable] > tbody > tr");
-			System.out.println(elementosPitchHc.size());
-			rootElement.appendChild(extractPitchHtmlToXml( elementosPitchHc, doc));
+//			Elements elementosPitchHc = documento
+//					.select("table[id=MainContent_Estado_Juego_Tabs_ctl44_BoxScore_Pitch_HC_DXMainTable] > tbody > tr");
+//			System.out.println(elementosPitchHc.size());
+//			rootElement.appendChild(extractPitchHtmlToXml( elementosPitchHc, doc));
 
 			
 			
@@ -85,21 +98,35 @@ public class ScrapingMLB20192020 {
 		String nombreFichero = hourdateFormat.format(fecha);
 
 		// escribimos el contenido en un archivo .xml
-		TransformerFactory transformerFactory = TransformerFactory.newInstance();
-		Transformer transformer = transformerFactory.newTransformer();
-		DOMSource source = new DOMSource(doc);
+//		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+//		Transformer transformer = transformerFactory.newTransformer();
+		
+//		DOMSource source = new DOMSource(doc);
 		String ruta = "dataXML\\";
-		StreamResult result = new StreamResult(new File(ruta, nombreFichero + ".xml"));
+//		StreamResult result = new StreamResult(new File(ruta, nombreFichero + ".xml"));
 
 		// StreamResult result = new StreamResult(new File("archivo.xml"));
 		// Si se quiere mostrar por la consola...
 		// StreamResult result = new StreamResult(System.out);
-		try {
-			transformer.transform(source, result);
-		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			transformer.transform(source, result);
+//		} catch (TransformerException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		
+		BufferedWriter  writer = null;
+        try
+        {
+            writer = new BufferedWriter( new FileWriter(ruta + nombreFichero + ".xml"));
+            writer.write(rootElement.toString());
+
+        }
+        catch ( IOException e)
+        {
+        }
+		
 		System.out.println("File saved!");
 
 	}
@@ -160,66 +187,70 @@ public class ScrapingMLB20192020 {
 		return doc;
 	}
 	
-	private static org.w3c.dom.Element extractOffensiveHtmlToXml(Elements elementos,org.w3c.dom.Document doc) {
+	private static Element extractOffensiveHtmlToXml(Elements elementos,Document doc) {
 		
-		org.w3c.dom.Element players = doc.createElement("players");
+		Element players = doc.createElement("players");
 		
 		for (Element elem : elementos) {
 
 			// para no tomar la primera entrada que tiene el encabezado
-			if (!(elem.equals(elementos.first()))) {
+//			if (!(elem.equals(elementos.first()))) {
 //				System.out.println("ok");
 
-				org.w3c.dom.Element player = doc.createElement("player");
+				Element player = doc.createElement("player");
 				players.appendChild(player);
 				Integer contador = 0;
 				Elements playerData = elem.select("td");
 				for (Element playerElement : playerData) {
 					contador++;
 					
-					//analisis de el id en sn
-					Element playerDataId = elem.select("a").get(0);
-					if (playerDataId != null) {
-						String playerDataIdA = playerDataId.attr("href");
-						// atributo del player
-						Attr attr = doc.createAttribute("id");
-						attr.setValue(extractIdLink(playerDataIdA));
-						player.setAttributeNode(attr);
-					}
+					//tomar el data-label
+					//String dataLabel = playerElement.attr("data-label");
 					
-					String attrName = "";
-					switch(contador) {
-					case 1: attrName = "name";
-					break;
-					case 2: attrName = "vb";
-					break;
-					case 3: attrName = "c";
-					break;
-					case 4: attrName = "h";
-					break;
-					case 5: attrName = "b2";
-					break;
-					case 6: attrName = "b3";
-					break;
-					case 7: attrName = "hr";
-					break;
-					case 8: attrName = "ci";
-					break;
-					case 9: attrName = "o";
-					break;
-					case 10: attrName = "a";
-					break;
-					case 11: attrName = "e";
-					break;
-					}
+					//analisis de el id en sn
+//					Element playerDataId = elem.select("a").get(0);
+//					if (playerDataId != null) {
+//						String playerDataIdA = playerDataId.attr("href");
+//						// atributo del player
+//						//player.attr("id", extractIdLink(playerDataIdA));
+//					}
+					
+//					String attrName = "";
+//					switch(contador) {
+//					case 1: attrName = "name";
+//					break;
+//					case 2: attrName = "vb";
+//					break;
+//					case 3: attrName = "c";
+//					break;
+//					case 4: attrName = "h";
+//					break;
+//					case 5: attrName = "b2";
+//					break;
+//					case 6: attrName = "b3";
+//					break;
+//					case 7: attrName = "hr";
+//					break;
+//					case 8: attrName = "ci";
+//					break;
+//					case 9: attrName = "o";
+//					break;
+//					case 10: attrName = "a";
+//					break;
+//					case 11: attrName = "e";
+//					break;
+//					}
 					String cadena = playerElement.text();
 
 					// atributo del player
-					Attr attr = doc.createAttribute(attrName);
-					attr.setValue(cadena);
-					player.setAttributeNode(attr);
+//					Attr attr = doc.createAttribute(attrName);
+//					attr.setValue(cadena);
+//					player.setAttributeNode(attr);
+					player.attr("id"+contador, cadena);
+					
+					
 				}
-			}
+//			}
 
 		}
 		return players;
@@ -230,57 +261,55 @@ private static String extractIdLink(String cadena) {
 	return cadenaSplit[1];
 }	
 	
-private static org.w3c.dom.Element extractPitchHtmlToXml(Elements elementos,org.w3c.dom.Document doc) {
+private static Element extractPitchHtmlToXml(Elements elementos,Document doc) {
 		
-		org.w3c.dom.Element players = doc.createElement("players");
+		Element players = doc.createElement("players");
 		
 		for (Element elem : elementos) {
 
 			// para no tomar la primera entrada que tiene el encabezado
-			if (!(elem.equals(elementos.first()))) {
+//			if (!(elem.equals(elementos.first()))) {
 //				System.out.println("ok");
 
-				org.w3c.dom.Element player = doc.createElement("player");
+				Element player = doc.createElement("player");
 				players.appendChild(player);
 				Integer contador = 0;
 				Elements playerData = elem.select("td");
 				for (Element playerElement : playerData) {
 					contador++;
-					String attrName = "";
-					switch(contador) {
-					case 1: attrName = "name";
-					break;
-					case 2: attrName = "vb";
-					break;
-					case 3: attrName = "h";
-					break;
-					case 4: attrName = "c";
-					break;
-					case 5: attrName = "cl";
-					break;
-					case 6: attrName = "so";
-					break;
-					case 7: attrName = "bb";
-					break;
-					case 8: attrName = "bi";
-					break;
-					case 9: attrName = "wp";
-					break;
-					case 10: attrName = "db";
-					break;
-					case 11: attrName = "bk";
-					break;
-					case 12: attrName = "inn";
-					break;
-					}
+//					String attrName = "";
+//					switch(contador) {
+//					case 1: attrName = "name";
+//					break;
+//					case 2: attrName = "vb";
+//					break;
+//					case 3: attrName = "h";
+//					break;
+//					case 4: attrName = "c";
+//					break;
+//					case 5: attrName = "cl";
+//					break;
+//					case 6: attrName = "so";
+//					break;
+//					case 7: attrName = "bb";
+//					break;
+//					case 8: attrName = "bi";
+//					break;
+//					case 9: attrName = "wp";
+//					break;
+//					case 10: attrName = "db";
+//					break;
+//					case 11: attrName = "bk";
+//					break;
+//					case 12: attrName = "inn";
+//					break;
+//					}
 					String cadena = playerElement.text();
 
 					// atributo del player
-					Attr attr = doc.createAttribute(attrName);
-					attr.setValue(cadena);
-					player.setAttributeNode(attr);
+					player.attr("id"+contador, cadena);
 				}
-			}
+//			}
 
 		}
 		return players;
