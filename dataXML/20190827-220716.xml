@@ -1,0 +1,47 @@
+<game>
+ <players>
+  <player id1="Trea Turner, SS" id2="4" id3="0" id4="1" id5="1" id6="0" id7="0" id8="0" id9="0" id10="0.250" id11="0.200" id12="0.250" id13="0.450"></player>
+  <player id1="Adam Eaton, RF" id2="5" id3="1" id4="1" id5="1" id6="0" id7="0" id8="1" id9="0" id10="0.200" id11="0.200" id12="0.800" id13="1.000"></player>
+  <player id1="Anthony Rendon, 3B" id2="5" id3="1" id4="1" id5="0" id6="0" id7="0" id8="1" id9="0" id10="0.200" id11="0.200" id12="0.200" id13="0.400"></player>
+  <player id1="Juan Soto, LF" id2="4" id3="4" id4="3" id5="1" id6="1" id7="0" id8="0" id9="0" id10="0.750" id11="0.800" id12="1.500" id13="2.300"></player>
+  <player id1="Howie Kendrick, 1B" id2="5" id3="0" id4="2" id5="1" id6="0" id7="0" id8="2" id9="0" id10="0.400" id11="0.400" id12="0.600" id13="1.000"></player>
+  <player id1="Kurt Suzuki, C" id2="4" id3="2" id4="1" id5="1" id6="0" id7="0" id8="1" id9="0" id10="0.250" id11="0.400" id12="0.250" id13="0.650"></player>
+  <player id1="Brian Dozier, 2B" id2="4" id3="0" id4="1" id5="0" id6="1" id7="0" id8="3" id9="0" id10="0.250" id11="0.400" id12="0.250" id13="0.650"></player>
+  <player id1="Victor Robles, CF" id2="4" id3="1" id4="2" id5="2" id6="1" id7="1" id8="1" id9="0" id10="0.500" id11="0.600" id12="0.750" id13="1.350"></player>
+  <player id1="Aníbal Sánchez, P" id2="3" id3="0" id4="2" id5="1" id6="0" id7="0" id8="0" id9="0" id10="0.667" id11="0.667" id12="0.667" id13="1.334"></player>
+  <player id1="&nbsp;&nbsp;&nbsp;&nbsp;Matt Grace, P" id2="0" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="Totals" id2="38" id3="9" id4="14" id5="8" id6="3" id7="1" id8="9" id9="0" id10=".368" id11=".419" id12=".579" id13=".998"></player>
+ </players>
+ <players>
+  <player id1="Jason Heyward, CF" id2="3" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="&nbsp;&nbsp;&nbsp;&nbsp;David Phelps, P" id2="0" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="&nbsp;&nbsp;&nbsp;&nbsp;Steve Cishek, P" id2="0" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="&nbsp;&nbsp;&nbsp;&nbsp;Victor Caratini, 3B" id2="1" id3="1" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="Nick Castellanos, RF" id2="4" id3="1" id4="2" id5="1" id6="0" id7="0" id8="1" id9="0" id10="0.500" id11="0.500" id12="0.750" id13="1.250"></player>
+  <player id1="Kris Bryant, 3B" id2="3" id3="0" id4="0" id5="0" id6="0" id7="0" id8="1" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="&nbsp;&nbsp;&nbsp;&nbsp;Derek Holland, P" id2="1" id3="0" id4="0" id5="0" id6="0" id7="0" id8="1" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="Anthony Rizzo, 1B" id2="3" id3="0" id4="1" id5="1" id6="1" id7="0" id8="1" id9="0" id10="0.333" id11="0.500" id12="0.333" id13="0.833"></player>
+  <player id1="Javier Baez, SS" id2="2" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="&nbsp;&nbsp;&nbsp;&nbsp;Tyler Chatwood, P" id2="0" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="&nbsp;&nbsp;&nbsp;&nbsp;Ian Happ, CF" id2="2" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="Kyle Schwarber, LF" id2="3" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="Jonathan Lucroy, C" id2="3" id3="0" id4="0" id5="0" id6="0" id7="0" id8="2" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="Tony Kemp, 2B" id2="2" id3="1" id4="0" id5="0" id6="1" id7="0" id8="1" id9="0" id10="0.000" id11="0.333" id12="0.000" id13="0.333"></player>
+  <player id1="Jon Lester, P" id2="1" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="&nbsp;&nbsp;&nbsp;&nbsp;Pedro Strop, P" id2="0" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="&nbsp;&nbsp;&nbsp;&nbsp;Addison Russell, SS" id2="2" id3="0" id4="0" id5="0" id6="0" id7="0" id8="0" id9="0" id10="0.000" id11="0.000" id12="0.000" id13="0.000"></player>
+  <player id1="Totals" id2="30" id3="3" id4="3" id5="2" id6="2" id7="0" id8="7" id9="0" id10=".100" id11=".156" id12=".133" id13=".289"></player>
+ </players>
+ <players>
+  <player id1="Aníbal Sánchez Win" id2="8.1" id3="1" id4="2" id5="1" id6="2" id7="6" id8="0" id9="112-76" id10="1.08"></player>
+  <player id1="Matt Grace" id2="0.2" id3="2" id4="1" id5="1" id6="0" id7="1" id8="0" id9="13-7" id10="13.50"></player>
+ </players>
+ <players>
+  <player id1="Jon Lester Loss" id2="4.1" id3="9" id4="6" id5="6" id6="1" id7="2" id8="1" id9="95-59" id10="12.46"></player>
+  <player id1="Pedro Strop" id2="0.2" id3="1" id4="1" id5="1" id6="1" id7="1" id8="0" id9="20-11" id10="13.50"></player>
+  <player id1="Tyler Chatwood" id2="1.0" id3="0" id4="0" id5="0" id6="0" id7="1" id8="0" id9="15-9" id10="0.00"></player>
+  <player id1="David Phelps" id2="1.0" id3="1" id4="1" id5="1" id6="0" id7="2" id8="1" id9="16-11" id10="9.00"></player>
+  <player id1="Steve Cishek" id2="1.0" id3="2" id4="0" id5="0" id6="0" id7="1" id8="0" id9="19-13" id10="0.00"></player>
+  <player id1="Derek Holland" id2="1.0" id3="1" id4="1" id5="1" id6="1" id7="2" id8="0" id9="24-15" id10="9.00"></player>
+ </players>
+</game>

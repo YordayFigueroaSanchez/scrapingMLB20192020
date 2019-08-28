@@ -120,12 +120,24 @@ public class ScrapingMLB20192020 {
         try
         {
             writer = new BufferedWriter( new FileWriter(ruta + nombreFichero + ".xml"));
-            writer.write(rootElement.toString());
+            System.out.println(rootElement.outerHtml());
+            writer.write(rootElement.outerHtml());
 
         }
         catch ( IOException e)
         {
+        	System.out.println("error");
         }
+        finally
+        {try {
+        	if (writer != null){
+        		writer.close();
+        	}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}}
 		
 		System.out.println("File saved!");
 
