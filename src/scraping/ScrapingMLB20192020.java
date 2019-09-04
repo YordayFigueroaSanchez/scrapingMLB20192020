@@ -36,9 +36,6 @@ public class ScrapingMLB20192020 {
 
 		String file = "ejemploMLB.html";
 
-//		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-//		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-		
 		File input = new File("data/"  + file);
 		Document doc = null;
 		try {
@@ -59,6 +56,13 @@ public class ScrapingMLB20192020 {
 //			Document documento = getHtmlDocument(url);
 			Document documento = getHtmlFileToDocument(file);
 
+//			Analizando el score del juego
+			Elements elementosScore = documento
+					.select("table.mlb-scores > tbody");
+			System.out.println(elementosScore.size());
+//			rootElement.appendChild(extractPitchHtmlToXml( elementosPitchHc, doc));
+
+			
 //			Analizando el grupo de bateadores de ambos teams
 			Elements elementosOffensive = documento
 					.select("table.mlb-box-bat > tbody");
@@ -79,16 +83,7 @@ public class ScrapingMLB20192020 {
 			rootElement.appendChild(extractPitchHtmlToXml( elementosPitch.get(0).select("tr"), doc));
 			rootElement.appendChild(extractPitchHtmlToXml( elementosPitch.get(1).select("tr"), doc));
 			
-//			Analizando el grupo de bateadores del team HC
-//			Elements elementosPitchHc = documento
-//					.select("table[id=MainContent_Estado_Juego_Tabs_ctl44_BoxScore_Pitch_HC_DXMainTable] > tbody > tr");
-//			System.out.println(elementosPitchHc.size());
-//			rootElement.appendChild(extractPitchHtmlToXml( elementosPitchHc, doc));
 
-			
-			
-			
-			
 		}
 
 		// nombre del fichero
@@ -98,22 +93,7 @@ public class ScrapingMLB20192020 {
 		String nombreFichero = hourdateFormat.format(fecha);
 
 		// escribimos el contenido en un archivo .xml
-//		TransformerFactory transformerFactory = TransformerFactory.newInstance();
-//		Transformer transformer = transformerFactory.newTransformer();
-		
-//		DOMSource source = new DOMSource(doc);
 		String ruta = "dataXML\\";
-//		StreamResult result = new StreamResult(new File(ruta, nombreFichero + ".xml"));
-
-		// StreamResult result = new StreamResult(new File("archivo.xml"));
-		// Si se quiere mostrar por la consola...
-		// StreamResult result = new StreamResult(System.out);
-//		try {
-//			transformer.transform(source, result);
-//		} catch (TransformerException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		
 		
 		BufferedWriter  writer = null;
