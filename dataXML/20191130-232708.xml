@@ -1,0 +1,47 @@
+<game>
+ <batters>
+  <player id="11135" name="Trea Turner, SS" ab="4" r="0" h="1" rbi="1" bb="0" sb="0" so="0" lob="0" ave="0.250" obp="0.200" slg="0.250" ops="0.450"></player>
+  <player id="8793" name="Adam Eaton, RF" ab="5" r="1" h="1" rbi="1" bb="0" sb="0" so="1" lob="0" ave="0.200" obp="0.200" slg="0.800" ops="1.000"></player>
+  <player id="8910" name="Anthony Rendon, 3B" ab="5" r="1" h="1" rbi="0" bb="0" sb="0" so="1" lob="0" ave="0.200" obp="0.200" slg="0.200" ops="0.400"></player>
+  <player id="12824" name="Juan Soto, LF" ab="4" r="4" h="3" rbi="1" bb="1" sb="0" so="0" lob="0" ave="0.750" obp="0.800" slg="1.500" ops="2.300"></player>
+  <player id="5770" name="Howie Kendrick, 1B" ab="5" r="0" h="2" rbi="1" bb="0" sb="0" so="2" lob="0" ave="0.400" obp="0.400" slg="0.600" ops="1.000"></player>
+  <player id="6097" name="Kurt Suzuki, C" ab="4" r="2" h="1" rbi="1" bb="0" sb="0" so="1" lob="0" ave="0.250" obp="0.400" slg="0.250" ops="0.650"></player>
+  <player id="8488" name="Brian Dozier, 2B" ab="4" r="0" h="1" rbi="0" bb="1" sb="0" so="3" lob="0" ave="0.250" obp="0.400" slg="0.250" ops="0.650"></player>
+  <player id="12633" name="Victor Robles, CF" ab="4" r="1" h="2" rbi="2" bb="1" sb="1" so="1" lob="0" ave="0.500" obp="0.600" slg="0.750" ops="1.350"></player>
+  <player id="5854" name="Aníbal Sánchez, P" ab="3" r="0" h="2" rbi="1" bb="0" sb="0" so="0" lob="0" ave="0.667" obp="0.667" slg="0.667" ops="1.334"></player>
+  <player id="10626" name="Matt Grace, P" ab="0" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player name="Totals" ab="38" r="9" h="14" rbi="8" bb="3" sb="1" so="9" lob="0" ave=".368" obp=".419" slg=".579" ops=".998"></player>
+ </batters>
+ <batters>
+  <player id="7643" name="Jason Heyward, CF" ab="3" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="8417" name="David Phelps, P" ab="0" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="7853" name="Steve Cishek, P" ab="0" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="10284" name="Victor Caratini, 3B" ab="1" r="1" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="9360" name="Nick Castellanos, RF" ab="4" r="1" h="2" rbi="1" bb="0" sb="0" so="1" lob="0" ave="0.500" obp="0.500" slg="0.750" ops="1.250"></player>
+  <player id="10807" name="Kris Bryant, 3B" ab="3" r="0" h="0" rbi="0" bb="0" sb="0" so="1" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="7383" name="Derek Holland, P" ab="1" r="0" h="0" rbi="0" bb="0" sb="0" so="1" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="8543" name="Anthony Rizzo, 1B" ab="3" r="0" h="1" rbi="1" bb="1" sb="0" so="1" lob="0" ave="0.333" obp="0.500" slg="0.333" ops="0.833"></player>
+  <player id="10299" name="Javier Baez, SS" ab="2" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="8044" name="Tyler Chatwood, P" ab="0" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="12196" name="Ian Happ, CF" ab="2" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="10934" name="Kyle Schwarber, LF" ab="3" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="7699" name="Jonathan Lucroy, C" ab="3" r="0" h="0" rbi="0" bb="0" sb="0" so="2" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="11470" name="Tony Kemp, 2B" ab="2" r="1" h="0" rbi="0" bb="1" sb="0" so="1" lob="0" ave="0.000" obp="0.333" slg="0.000" ops="0.333"></player>
+  <player id="5838" name="Jon Lester, P" ab="1" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="7519" name="Pedro Strop, P" ab="0" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player id="10126" name="Addison Russell, SS" ab="2" r="0" h="0" rbi="0" bb="0" sb="0" so="0" lob="0" ave="0.000" obp="0.000" slg="0.000" ops="0.000"></player>
+  <player name="Totals" ab="30" r="3" h="3" rbi="2" bb="2" sb="0" so="7" lob="0" ave=".100" obp=".156" slg=".133" ops=".289"></player>
+ </batters>
+ <pitchers>
+  <player id="5854" name="Aníbal Sánchez Win" ip="8.1" h="1" r="2" er="1" bb="2" k="6" hr="0" pc-st="112-76" era="1.08"></player>
+  <player id="10626" name="Matt Grace" ip="0.2" h="2" r="1" er="1" bb="0" k="1" hr="0" pc-st="13-7" era="13.50"></player>
+ </pitchers>
+ <pitchers>
+  <player id="5838" name="Jon Lester Loss" ip="4.1" h="9" r="6" er="6" bb="1" k="2" hr="1" pc-st="95-59" era="12.46"></player>
+  <player id="7519" name="Pedro Strop" ip="0.2" h="1" r="1" er="1" bb="1" k="1" hr="0" pc-st="20-11" era="13.50"></player>
+  <player id="8044" name="Tyler Chatwood" ip="1.0" h="0" r="0" er="0" bb="0" k="1" hr="0" pc-st="15-9" era="0.00"></player>
+  <player id="8417" name="David Phelps" ip="1.0" h="1" r="1" er="1" bb="0" k="2" hr="1" pc-st="16-11" era="9.00"></player>
+  <player id="7853" name="Steve Cishek" ip="1.0" h="2" r="0" er="0" bb="0" k="1" hr="0" pc-st="19-13" era="0.00"></player>
+  <player id="7383" name="Derek Holland" ip="1.0" h="1" r="1" er="1" bb="1" k="2" hr="0" pc-st="24-15" era="9.00"></player>
+ </pitchers>
+</game>

@@ -36,7 +36,7 @@ public class ScrapingMLB20192020 {
 
 		String file = "ejemploMLB.html";
 
-		File input = new File("data/"  + file);
+		File input = new File("data/" + file);
 		Document doc = null;
 		try {
 			doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
@@ -47,8 +47,8 @@ public class ScrapingMLB20192020 {
 
 		// elemento raiz
 //		Document doc = docBuilder.newDocument();
-		Element rootElement = doc.createElement("game");
-		doc.appendChild(rootElement);
+		Element gameElement = doc.createElement("game");
+		doc.appendChild(gameElement);
 
 //		if (getStatusConnectionCode(url) == 200) {
 		if (getStatusFile(file) == 1) {
@@ -57,32 +57,27 @@ public class ScrapingMLB20192020 {
 			Document documento = getHtmlFileToDocument(file);
 
 //			Analizando el score del juego
-			Elements elementosScore = documento
-					.select("table.mlb-scores > tbody");
+			Elements elementosScore = documento.select("table.mlb-scores > tbody");
 			System.out.println(elementosScore.size());
 //			rootElement.appendChild(extractPitchHtmlToXml( elementosPitchHc, doc));
 
-			
 //			Analizando el grupo de bateadores de ambos teams
-			Elements elementosOffensive = documento
-					.select("table.mlb-box-bat > tbody");
+			Elements elementosOffensive = documento.select("table.mlb-box-bat > tbody");
 			System.out.println(elementosOffensive.size());
-			rootElement.appendChild(extractOffensiveHtmlToXml( elementosOffensive.get(0).select("tr"), doc));
-			rootElement.appendChild(extractOffensiveHtmlToXml( elementosOffensive.get(1).select("tr"), doc));
-			
+			gameElement.appendChild(extractOffensiveHtmlToXml(elementosOffensive.get(0).select("tr"), doc));
+			gameElement.appendChild(extractOffensiveHtmlToXml(elementosOffensive.get(1).select("tr"), doc));
+
 //			Analizando el grupo de bateadores del team HC
 //			Elements elementosOffensiveHc = documento
 //					.select("table[id=MainContent_Estado_Juego_Tabs_ctl44_BoxScore_Bateo_HC_DXMainTable] > tbody > tr");
 //			System.out.println(elementosOffensiveHc.size());
 //			rootElement.appendChild(extractOffensiveHtmlToXml( elementosOffensiveHc, doc));
-			
+
 //			Analizando el grupo de lanzadores de ambos team
-			Elements elementosPitch = documento
-					.select("table.mlb-pitch > tbody");
+			Elements elementosPitch = documento.select("table.mlb-pitch > tbody");
 			System.out.println(elementosPitch.size());
-			rootElement.appendChild(extractPitchHtmlToXml( elementosPitch.get(0).select("tr"), doc));
-			rootElement.appendChild(extractPitchHtmlToXml( elementosPitch.get(1).select("tr"), doc));
-			
+			gameElement.appendChild(extractPitchHtmlToXml(elementosPitch.get(0).select("tr"), doc));
+			gameElement.appendChild(extractPitchHtmlToXml(elementosPitch.get(1).select("tr"), doc));
 
 		}
 
@@ -94,31 +89,27 @@ public class ScrapingMLB20192020 {
 
 		// escribimos el contenido en un archivo .xml
 		String ruta = "dataXML\\";
-		
-		
-		BufferedWriter  writer = null;
-        try
-        {
-            writer = new BufferedWriter( new FileWriter(ruta + nombreFichero + ".xml"));
-            System.out.println(rootElement.outerHtml());
-            writer.write(rootElement.outerHtml());
 
-        }
-        catch ( IOException e)
-        {
-        	System.out.println("error");
-        }
-        finally
-        {try {
-        	if (writer != null){
-        		writer.close();
-        	}
-			
+		BufferedWriter writer = null;
+		try {
+			writer = new BufferedWriter(new FileWriter(ruta + nombreFichero + ".xml"));
+			System.out.println(gameElement.outerHtml());
+			writer.write(gameElement.outerHtml());
+
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}}
-		
+			System.out.println("error");
+		} finally {
+			try {
+				if (writer != null) {
+					writer.close();
+				}
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
 		System.out.println("File saved!");
 
 	}
@@ -178,129 +169,202 @@ public class ScrapingMLB20192020 {
 		}
 		return doc;
 	}
-	
-	private static Element extractOffensiveHtmlToXml(Elements elementos,Document doc) {
-		
-		Element players = doc.createElement("players");
-		
+
+	private static Element extractOffensiveHtmlToXml(Elements elementos, Document doc) {
+
+		Element players = doc.createElement("batters");
+
 		for (Element elem : elementos) {
 
 			// para no tomar la primera entrada que tiene el encabezado
 //			if (!(elem.equals(elementos.first()))) {
 //				System.out.println("ok");
 
-				Element player = doc.createElement("player");
-				players.appendChild(player);
-				Integer contador = 0;
-				Elements playerData = elem.select("td");
-				for (Element playerElement : playerData) {
-					contador++;
-					
-					//tomar el data-label
-					//String dataLabel = playerElement.attr("data-label");
-					
-					//analisis de el id en sn
-//					Element playerDataId = elem.select("a").get(0);
-//					if (playerDataId != null) {
-//						String playerDataIdA = playerDataId.attr("href");
-//						// atributo del player
-//						//player.attr("id", extractIdLink(playerDataIdA));
-//					}
-					
-//					String attrName = "";
-//					switch(contador) {
-//					case 1: attrName = "name";
-//					break;
-//					case 2: attrName = "vb";
-//					break;
-//					case 3: attrName = "c";
-//					break;
-//					case 4: attrName = "h";
-//					break;
-//					case 5: attrName = "b2";
-//					break;
-//					case 6: attrName = "b3";
-//					break;
-//					case 7: attrName = "hr";
-//					break;
-//					case 8: attrName = "ci";
-//					break;
-//					case 9: attrName = "o";
-//					break;
-//					case 10: attrName = "a";
-//					break;
-//					case 11: attrName = "e";
-//					break;
-//					}
-					String cadena = playerElement.text();
+			Element player = doc.createElement("player");
+			players.appendChild(player);
+			Integer contador = 0;
+			Elements playerData = elem.select("td");
+			for (Element playerElement : playerData) {
+				contador++;
 
-					// atributo del player
+				// tomar el data-label
+				// String dataLabel = playerElement.attr("data-label");
+
+				String attrName = "";
+				String cadena = "";
+
+				switch (contador) {
+				case 1:
+					attrName = "name";
+					cadena = playerElement.text();
+					cadena = extractElementBefore(cadena);
+					//cadena = cadena2.trim();
+					Elements playerDataIds = elem.select("a");
+
+					if (!playerDataIds.isEmpty()) {
+						Element playerDataId = playerDataIds.get(0);
+						String playerDataIdA = playerDataId.attr("href");
+						// atributo del player
+						player.attr("id", extractIdLink(playerDataIdA));
+					}
+					break;
+				case 2:
+					attrName = "ab";
+					cadena = playerElement.text();
+					break;
+				case 3:
+					attrName = "r";
+					cadena = playerElement.text();
+					break;
+				case 4:
+					attrName = "h";
+					cadena = playerElement.text();
+					break;
+				case 5:
+					attrName = "rbi";
+					cadena = playerElement.text();
+					break;
+				case 6:
+					attrName = "bb";
+					cadena = playerElement.text();
+					break;
+				case 7:
+					attrName = "sb";
+					cadena = playerElement.text();
+					break;
+				case 8:
+					attrName = "so";
+					cadena = playerElement.text();
+					break;
+				case 9:
+					attrName = "lob";
+					cadena = playerElement.text();
+					break;
+				case 10:
+					attrName = "ave";
+					cadena = playerElement.text();
+					break;
+				case 11:
+					attrName = "obp";
+					cadena = playerElement.text();
+					break;
+				case 12:
+					attrName = "slg";
+					cadena = playerElement.text();
+					break;
+				case 13:
+					attrName = "ops";
+					cadena = playerElement.text();
+					break;
+				}
+				// String cadena = playerElement.text();
+
+				// atributo del player
 //					Attr attr = doc.createAttribute(attrName);
 //					attr.setValue(cadena);
 //					player.setAttributeNode(attr);
-					player.attr("id"+contador, cadena);
-					
-					
-				}
+				player.attr(attrName, cadena.trim());
+
+			}
 //			}
 
 		}
 		return players;
 	}
 
-private static String extractIdLink(String cadena) {
-	String[] cadenaSplit = cadena.split("id=");
-	return cadenaSplit[1];
-}	
+	private static String extractIdLink(String cadena) {
+		String[] cadenaSplit = cadena.split("player/");
+		return cadenaSplit[1];
+	}
 	
-private static Element extractPitchHtmlToXml(Elements elementos,Document doc) {
-		
-		Element players = doc.createElement("players");
-		
+	private static String extractElementBefore(String cadena) {
+		while(!Character.isLetter(cadena.charAt(0))) {
+			cadena = cadena.substring(1,cadena.length());
+		}
+		//String[] cadenaSplit = cadena.split(";");
+		//return cadenaSplit[cadenaSplit.length-1];
+		return cadena;
+	}
+
+	private static Element extractPitchHtmlToXml(Elements elementos, Document doc) {
+
+		Element players = doc.createElement("pitchers");
+
 		for (Element elem : elementos) {
 
 			// para no tomar la primera entrada que tiene el encabezado
 //			if (!(elem.equals(elementos.first()))) {
 //				System.out.println("ok");
 
-				Element player = doc.createElement("player");
-				players.appendChild(player);
-				Integer contador = 0;
-				Elements playerData = elem.select("td");
-				for (Element playerElement : playerData) {
-					contador++;
-//					String attrName = "";
-//					switch(contador) {
-//					case 1: attrName = "name";
-//					break;
-//					case 2: attrName = "vb";
-//					break;
-//					case 3: attrName = "h";
-//					break;
-//					case 4: attrName = "c";
-//					break;
-//					case 5: attrName = "cl";
-//					break;
-//					case 6: attrName = "so";
-//					break;
-//					case 7: attrName = "bb";
-//					break;
-//					case 8: attrName = "bi";
-//					break;
-//					case 9: attrName = "wp";
-//					break;
-//					case 10: attrName = "db";
-//					break;
+			Element player = doc.createElement("player");
+			players.appendChild(player);
+			Integer contador = 0;
+			String cadena	= "";
+			Elements playerData = elem.select("td");
+			for (Element playerElement : playerData) {
+				contador++;
+				String attrName = "";
+				switch (contador) {
+				case 1:
+					attrName = "name";
+					cadena = playerElement.text();
+					cadena = extractElementBefore(cadena);
+					//cadena = cadena2.trim();
+					Elements playerDataIds = elem.select("a");
+
+					if (!playerDataIds.isEmpty()) {
+						Element playerDataId = playerDataIds.get(0);
+						String playerDataIdA = playerDataId.attr("href");
+						// atributo del player
+						player.attr("id", extractIdLink(playerDataIdA));
+					}
+					break;
+				case 2:
+					attrName = "ip";
+					cadena = playerElement.text();
+					break;
+				case 3:
+					attrName = "h";
+					cadena = playerElement.text();
+					break;
+				case 4:
+					attrName = "r";
+					cadena = playerElement.text();
+					break;
+				case 5:
+					attrName = "er";
+					cadena = playerElement.text();
+					break;
+				case 6:
+					attrName = "bb";
+					cadena = playerElement.text();
+					break;
+				case 7:
+					attrName = "k";
+					cadena = playerElement.text();
+					break;
+				case 8:
+					attrName = "hr";
+					cadena = playerElement.text();
+					break;
+				case 9:
+					attrName = "pc-st";
+					cadena = playerElement.text();
+					break;
+				case 10:
+					attrName = "era";
+					cadena = playerElement.text();
+					break;
 //					case 11: attrName = "bk";
 //					break;
 //					case 12: attrName = "inn";
 //					break;
-//					}
-					String cadena = playerElement.text();
-
-					// atributo del player
-					player.attr("id"+contador, cadena);
 				}
+//				String cadena = playerElement.text();
+
+				// atributo del player
+				player.attr(attrName, cadena.trim());
+			}
 //			}
 
 		}
